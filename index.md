@@ -42,5 +42,13 @@ Team working on it. Will be resolved soon
     - Facial recognization with Python
     - Car number plate reading from Streaming Video
     - Medical Image Processing with Matlab
+- AI In Enterprise
+  - By Function
+    - AI in HR Management
+    - AI in Finance
+  - By Industry
+    - AI in Manufacturing
+- AI Ethics
+  - Principles & Laws of AI Ethics
 
 
