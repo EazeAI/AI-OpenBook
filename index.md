@@ -1,6 +1,6 @@
 #### Broken Links!
 
-``` 
+```
 Some of the links are broken as we moved to md version.
 Team working on it. Will be resolved soon
 ```
@@ -15,7 +15,8 @@ Team working on it. Will be resolved soon
     - Deep Learning
     - Fuzzy Logic
     - Heuristic Methods
-    - Search Optimization
+    - Search Optimisation
+    - Nature Inspired Intelligence
   - AI Latest Scenarios
     - Robotic Process Automation
     - Chatbots
@@ -42,6 +43,14 @@ Team working on it. Will be resolved soon
     - Facial recognization with Python
     - Car number plate reading from Streaming Video
     - Medical Image Processing with Matlab
+- Nature Inspired Intelligence
+  - Swarm Intelligence
+  - Evolutionary Computing
+    - Evolutionary Strategies
+    - Differential Evolution
+  - Generic Programming
+  - Advances in Nature Inspired intelligence
+    -
 - AI In Enterprise
   - By Function
     - AI in HR Management
@@ -50,5 +59,3 @@ Team working on it. Will be resolved soon
     - AI in Manufacturing
 - AI Ethics
   - Principles & Laws of AI Ethics
-
-
