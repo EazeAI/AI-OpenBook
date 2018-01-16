@@ -40,7 +40,7 @@ Team working on it. Will be resolved soon
 - Computer Vision
   - Using OpenCV
   - Samples
-    - Facial recognization with Python
+    - Facial recognisation with Python
     - Car number plate reading from Streaming Video
     - Medical Image Processing with Matlab
 - Nature Inspired Intelligence
@@ -50,7 +50,6 @@ Team working on it. Will be resolved soon
     - Differential Evolution
   - Generic Programming
   - Advances in Nature Inspired intelligence
-    -
 - AI In Enterprise
   - By Function
     - AI in HR Management
