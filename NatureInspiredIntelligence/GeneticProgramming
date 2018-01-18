@@ -1,0 +1,80 @@
+# Genetic Programming
+## Introduction
+
+Genetic Algorithm (GA) is a search-based optimisation technique based on the principles of Genetics and Natural Selection. It is frequently used to find optimal or near-optimal solutions to difficult problems which otherwise would take a lifetime to solve. It is frequently used to solve optimisation problems, in research, and in machine learning.
+
+## Generic algorithms
+
+GAs are a subset of a much larger branch of computation known as Evolutionary Computation
+
+GAs were developed by John Holland and his students and colleagues at the University of Michigan, most notably David E. Goldberg and has since been tried on various optimisation problems with a high degree of success.
+
+In GAs, we have a pool or a population of possible solutions to the given problem. These solutions then undergo recombination and mutation (like in natural genetics), producing new children, and the process is repeated over various generations. Each individual (or candidate solution) is assigned a fitness value (based on its objective function value) and the fitter individuals are given a higher chance to mate and yield more “fitter” individuals. This is in line with the Darwinian Theory of “Survival of the Fittest”.
+
+In this way we keep “evolving” better individuals or solutions over generations, till we reach a stopping criterion.
+
+Genetic Algorithms are sufficiently randomised in nature, but they perform much better than random local search (in which we just try various random solutions, keeping track of the best so far), as they exploit historical information as well.
+
+#### Advantages of GAs
+GAs have various advantages which have made them immensely popular. These include −
+
+- Does not require any derivative information (which may not be available for many real-world problems).
+- Is faster and more efficient as compared to the traditional methods.
+- Has very good parallel capabilities.
+- Optimises both continuous and discrete functions and also multi-objective problems.
+- Provides a list of “good” solutions and not just a single solution.
+- Always gets an answer to the problem, which gets better over the time.
+- Useful when the search space is very large and there are a large number of parameters involved.
+
+#### Limitations of GAs
+Like any technique, GAs also suffer from a few limitations. These include −
+- GAs are not suited for all problems, especially problems which are simple and for which derivative information is available.
+- Fitness value is calculated repeatedly which might be computationally expensive for some problems.
+- Being stochastic, there are no guarantees on the optimality or the quality of the solution.
+- If not implemented properly, the GA may not converge to the optimal solution.
+
+| Boxcar 2D
+|-
+| [Boxcar2D](http://boxcar2d.com/) is an implementation generic algorithm for Computation Intelligence Car Evolution Using Box2D Physics.
+
+
+## Understanding Generic Algorithms
+
+### Brute Force Algorithm
+
+### Infinite Monkey Theorem
+
+The “infinite monkey theorem” is stated as follows: A monkey hitting keys randomly on a typewriter will eventually type the complete works of Shakespeare (given an infinite amount of time). The problem with this theory is that the probability of said monkey actually typing Shakespeare is so low that even if that monkey started at the Big Bang, it’s unbelievably unlikely we’d even have Hamlet at this point.
+
+Let’s consider a monkey named George. George types on a reduced typewriter containing only twenty-seven characters: twenty-six letters and one space bar. So the probability of George hitting any given key is one in twenty-seven.
+
+Let’s consider the phrase “to be or not to be that is the question” (we’re simplifying it from the original “To be, or not to be: that is the question”). The phrase is 39 characters long. If George starts typing, the chance he’ll get the first character right is 1 in 27. Since the probability he’ll get the second character right is also 1 in 27, he has a 1 in 27*27 chance of landing the first two characters in correct order—which follows directly from our discussion of "event probability" in the Introduction. Therefore, the probability that George will type the full phrase is:
+
+(1/27) multiplied by itself 39 times, i.e. (1/27)39
+
+which equals a 1 in 66,555,937,033,867,822,607,895,549,241,096,482,953,017,615,834,735,226,163 chance of getting it right!
+
+Needless to say, even hitting just this one phrase, not to mention an entire play, is highly unlikely. Even if George is a computer simulation and can type one million random phrases per second, for George to have a 99% probability of eventually getting it right, he would have to type for 9,719,096,182,010,563,073,125,591,133,903,305,625,605,017 years. (Note that the age of the universe is estimated to be a mere 13,750,000,000 years.)
+
+The point of all these unfathomably large numbers is not to give you a headache, but to demonstrate that a brute force algorithm (typing every possible random phrase) is not a reasonable strategy for arriving randomly at “to be or not to be that is the question”. Enter genetic algorithms, which will show that we can still start with random phrases and find the solution through simulated evolution.
+
+Now, it’s worth noting that this problem (arrive at the phrase “to be or not to be that is the question”) is a ridiculous one. Since we know the answer, all we need to do is type it. Here’s a Processing sketch that solves the problem.
+
+```
+string s = "To be or not to be that is the question";
+println(s);
+```
+
+Nevertheless, the point here is that solving a problem with a known answer allows us to easily test our code. Once we’ve successfully solved the problem, we can feel more confident in using genetic algorithms to do some actual useful work: solving problems with unknown answers. So this first example serves no real purpose other than to demonstrate how genetic algorithms work. If we test the GA results against the known answer and get “to be or not to be”, then we’ve succeeded in writing our genetic algorithm.
+
+### Darwinian Natural Selection
+
+Before we begin walking through the genetic algorithm, let’s take a moment to describe three core principles of Darwinian evolution that will be required as we implement our simulation. In order for natural selection to occur as it does in nature, all three of these elements must be present.
+
+1. Heredity. There must be a process in place by which children receive the properties of their parents. If creatures live long enough to reproduce, then their traits are passed down to their children in the next generation of creatures.
+
+2. Variation. There must be a variety of traits present in the population or a means with which to introduce variation. For example, let’s say there is a population of beetles in which all the beetles are exactly the same: same color, same size, same wingspan, same everything. Without any variety in the population, the children will always be identical to the parents and to each other. New combinations of traits can never occur and nothing can evolve.
+
+3. Selection. There must be a mechanism by which some members of a population have the opportunity to be parents and pass down their genetic information and some do not. This is typically referred to as “survival of the fittest.” For example, let’s say a population of gazelles is chased by lions every day. The faster gazelles are more likely to escape the lions and are therefore more likely to live longer and have a chance to reproduce and pass their genes down to their children. The term fittest, however, can be a bit misleading. Generally, we think of it as meaning bigger, faster, or stronger. While this may be the case in some instances, natural selection operates on the principle that some traits are better adapted for the creature’s environment and therefore produce a greater likelihood of surviving and reproducing. It has nothing to do with a given creature being “better” (after all, this is a subjective term) or more “physically fit.” In the case of our typing monkeys, for example, a more “fit” monkey is one that has typed a phrase closer to “to be or not to be”.
+
+Next I’d like to walk through the narrative of the genetic algorithm. We’ll do this in the context of the typing monkey. The algorithm itself will be divided into two parts: a set of conditions for initialization (i.e. Processing’s setup()) and the steps that are repeated over and over again (i.e. Processing’s draw()) until we arrive at the correct answer.

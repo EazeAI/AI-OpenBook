@@ -1,8 +1,8 @@
-#### Broken Links!
+#### Broken Links!!!
 
 ```
-Some of the links are broken as we moved to md version.
-Team working on it. Will be resolved soon
+Some of the links are broken as we moved to markdown version.
+Team working on it. Will be resolved soon...
 ```
 
 # Practical Artificial Intelligence
@@ -40,7 +40,7 @@ Team working on it. Will be resolved soon
 - Computer Vision
   - Using OpenCV
   - Samples
-    - Facial recognisation with Python
+    - Facial recognition with Python
     - Car number plate reading from Streaming Video
     - Medical Image Processing with Matlab
 - Nature Inspired Intelligence
